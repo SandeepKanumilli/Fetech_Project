@@ -1,0 +1,14 @@
+Task 3: Training Considerations with Layer-Wise Learning Rates
+For Task 3, I implemented layer-wise learning rates to fine-tune the multi-task sentence transformer model strategically. I set progressively smaller learning rates for the lower layers and higher rates for the upper layers and task-specific heads. This approach helped me balance two objectives:
+
+Preserving Pre-trained Knowledge: I used lower learning rates for the foundational layers, which capture general language patterns, to ensure I retained these features while allowing minimal adjustments.
+Efficient Task Adaptation: I applied higher learning rates for the upper layers and task-specific heads, enabling them to adapt faster to the unique requirements of Task A and Task B (sentiment analysis).
+Key Insight: Layer-wise learning rates allowed me to maintain general language understanding while making the model flexible enough to handle the specific needs of each task in the multi-task setting.
+
+Task 4: Evaluation and Fine-Tuning
+In Task 4, I evaluated the model on both Task A and Task B. The model achieved high accuracy on Task B (sentiment analysis), but Task A’s performance was moderate. This outcome showed that while layer-wise learning rates helped the model adapt to multiple tasks, Task A might benefit from further tuning. I considered a few ways to enhance Task A's performance:
+
+Data Augmentation: Expanding the dataset for Task A could give the model more examples to learn task-specific patterns, which may improve its generalization.
+Adjusting Learning Rates: Minor adjustments in the learning rate hierarchy could further prioritize Task A if it's a higher priority task.
+Key Insight: The model’s success on Task B confirmed that layer-wise learning rates were effective in a multi-task setup, but the differing accuracy levels emphasized the importance of task-specific tuning, especially when the tasks have varying complexity.
+
